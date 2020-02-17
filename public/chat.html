@@ -17,9 +17,41 @@
         <div class="compose">
           <form id="message-form">
             <input name="message" type="text" placeholder="Type your message ..." required autocomplete="off" />
-            <button type="submit">Send</button>
+            <button type="submit">
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="far"
+                data-icon="paper-plane"
+                class="svg-inline--fa fa-paper-plane fa-w-16"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M440 6.5L24 246.4c-34.4 19.9-31.1 70.8 5.7 85.9L144 379.6V464c0 46.4 59.2 65.5 86.6 28.6l43.8-59.1 111.9 46.2c5.9 2.4 12.1 3.6 18.3 3.6 8.2 0 16.3-2.1 23.6-6.2 12.8-7.2 21.6-20 23.9-34.5l59.4-387.2c6.1-40.1-36.9-68.8-71.5-48.9zM192 464v-64.6l36.6 15.1L192 464zm212.6-28.7l-153.8-63.5L391 169.5c10.7-15.5-9.5-33.5-23.7-21.2L155.8 332.6 48 288 464 48l-59.4 387.3z"
+                ></path>
+              </svg>
+            </button>
           </form>
-          <button id="send-location">Send location</button>
+          <button id="send-location">
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="map-marker-alt"
+              class="svg-inline--fa fa-map-marker-alt fa-w-12"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 384 512"
+            >
+              <path
+                fill="currentColor"
+                d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+              ></path>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -45,13 +77,21 @@
     </script>
 
     <script id="sidebar-template" type="text/html">
-      <h2 class="room-title">{{room}}</h2>
-      <h3 class="list-title">Users</h3>
-      <ul class="users">
-        {{#users}}
-          <li>{{username}}</li>
-        {{/users}}
-      </ul>
+      <h2 class="room-title">
+        {{room}}
+        <div id="users-counter" class="users-counter">
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-friends" class="svg-inline--fa fa-user-friends fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M192 256c61.9 0 112-50.1 112-112S253.9 32 192 32 80 82.1 80 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C51.6 288 0 339.6 0 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zM480 256c53 0 96-43 96-96s-43-96-96-96-96 43-96 96 43 96 96 96zm48 32h-3.8c-13.9 4.8-28.6 8-44.2 8s-30.3-3.2-44.2-8H432c-20.4 0-39.2 5.9-55.7 15.4 24.4 26.3 39.7 61.2 39.7 99.8v38.4c0 2.2-.5 4.3-.6 6.4H592c26.5 0 48-21.5 48-48 0-61.9-50.1-112-112-112z"></path></svg>
+          {{users.length}}
+        </div>
+      </h2>
+      <div id="users-container" class="users-container">
+        <h3 class="list-title">Users</h3>
+        <ul class="users">
+          {{#users}}
+            <li>{{username}}</li>
+          {{/users}}
+        </ul>
+      </div>
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>

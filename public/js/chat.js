@@ -64,6 +64,17 @@ socket.on("roomData", ({ room, users }) => {
     users
   });
   document.querySelector("#sidebar").innerHTML = html;
+
+  const $usersCounter = document.querySelector("#users-counter");
+  const $usersContainer = document.querySelector("#users-container");
+
+  $usersCounter.addEventListener("click", () => {
+    if ($usersContainer.classList.contains("is-toggled")) {
+      $usersContainer.classList.remove("is-toggled");
+    } else {
+      $usersContainer.classList.add("is-toggled");
+    }
+  });
 });
 
 $messageForm.addEventListener("submit", e => {

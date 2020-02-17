@@ -56,6 +56,12 @@ button:disabled {
     background: #7c5cbf94;
 }
 
+svg {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
 /* Join Page Styles */
 
 .centered-form {
@@ -97,6 +103,21 @@ button:disabled {
     overflow-y: scroll
 }
 
+@media screen and (max-width: 767px) {
+    .chat {
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .chat__sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+    }
+}
+
 /* Chat styles */
 
 .chat__main {
@@ -110,6 +131,13 @@ button:disabled {
     flex-grow: 1;
     padding: 24px 24px 0 24px;
     overflow-y: scroll;
+}
+
+@media screen and (max-width: 767px) {
+    .chat__main {
+        margin-top: 78px;
+        height: calc(100vh - 78px);
+    }
 }
 
 /* Message Styles */
@@ -160,13 +188,26 @@ button:disabled {
     font-size: 14px;
 }
 
+@media screen and (max-width: 767px) {
+    .compose {
+        margin-top: 0;
+    }
+}
+
 /* Chat Sidebar Styles */
 
 .room-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     font-weight: 400;
     font-size: 22px;
     background: #2c2f3a;
     padding: 24px;   
+}
+
+.room-title > .users-counter {
+    display: none;
 }
 
 .list-title {
@@ -179,5 +220,34 @@ button:disabled {
 .users {
     list-style-type: none;
     font-weight: 300;
-    padding: 12px 24px 0 24px;
+    padding: 12px 24px;
+}
+
+@media screen and (max-width: 767px) {
+    .room-title > .users-counter {
+        display: flex;
+        align-items: center;
+        padding: 4px 6px;
+        font-size: 15px;
+        background-color: #7c5cbf;
+        border-radius: 4px;
+    }
+
+    .room-title > .users-counter > svg {
+        margin-right: 8px;
+    }
+
+    .users-container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        max-height: 0;
+        transition: max-height .5s ease-in-out;
+        overflow: scroll;
+    }
+
+    .users-container.is-toggled {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
 }
